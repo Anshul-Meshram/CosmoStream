@@ -1,31 +1,65 @@
+# ==========================
 # Operating System
+# ==========================
 .DS_Store
 Thumbs.db
 
-# Editors
+# ==========================
+# Editors / IDEs
+# ==========================
 .vscode/
 .idea/
 
+# ==========================
 # Python
+# ==========================
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
 
+# ==========================
 # Node
+# ==========================
 node_modules/
 
+# ==========================
 # Logs
+# ==========================
 *.log
 
-# Environment
+# ==========================
+# Environment Variables
+# ==========================
 .env
 .env.*
+!.env.example
 
-# Docker 
+# ==========================
+# Docker
+# ==========================
 *.pid
 
-# Build
-dist/
+# ==========================
+# Build Artifacts
+# ==========================
 build/
+dist/
+*.egg-info/
 
+# ==========================
 # Misc
+# ==========================
 *.swp
+
+# ==========================
+# Project Experiments
+# ==========================
+sandbox/
