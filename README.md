@@ -11,9 +11,9 @@ A modern streaming platform built from scratch as a long-term learning project.
 
 ## Project Status 
 
-Current Version: 0.1.0
+Current Version: Development
 
-Current Phase: Phase 0 - Project Setup (Completed)
+Current Phase: Phase 1 - Backend Foundation
 
 ## Structure 
 
