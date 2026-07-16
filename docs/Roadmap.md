@@ -8,7 +8,11 @@
 - Development workflow
 
 ## Phase 1
-- Basic backend service 
+Backend Foundation
+- FastAPI structure
+- Health endpoint
+- Configuration
+- Logging 
 
 ## Phase 2
 - API Gateway

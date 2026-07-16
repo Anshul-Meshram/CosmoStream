@@ -11,9 +11,9 @@ A modern streaming platform built from scratch as a long-term learning project.
 
 ## Project Status 
 
-Version: 0.0.0
+Current Version: 0.1.0
 
-Current Phase: Project Setup
+Current Phase: Phase 0 - Project Setup (Completed)
 
 ## Structure 
 
@@ -32,3 +32,45 @@ scripts/
 ## License
 
 To be decided.
+
+## Development
+
+### Start the backend
+
+```bash
+make up
+```
+
+### Stop services
+
+```bash
+make down
+```
+
+### Lint
+
+```bash
+make lint
+```
+
+### Format
+
+```bash
+make format
+```
+
+### Run quality checks
+
+```bash
+make check
+```
+
+## Tech Stack
+
+- Python
+- FastAPI
+- Docker
+- Docker Compose
+- GitHub Actions
+- Ruff
+- pre-commit

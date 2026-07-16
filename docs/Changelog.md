@@ -1,8 +1,24 @@
-# Changelog 
+# Changelog
+
+## v0.1.0
+
+### Added
+
+- Docker development environment
+- FastAPI backend scaffold
+- Makefile
+- GitHub Actions CI
+- Ruff
+- Pre-commit hooks
+- Coding standards
+- Git workflow documentation
+- Editor configuration
+
+# Changelog
 
 ## v0.0.0
 
-### Added 
+### Added
 
 - Initial project structure
 - Documentation directory
