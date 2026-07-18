@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.1.0-alpha.1
+
+### Added
+- FastAPI backend foundation
+- Modular routing with APIRouter
+- API versioning
+- Configuration management
+- Health endpoint
+- Application lifecycle (lifespan)
+- Structured logging
+
+### Infrastructure
+- Python virual environment
+- Dependency management
+- Project structure
+- Pre-commit hooks
+- Ruff formatting
+
+# Changelog
+
 ## v0.1.0
 
 ### Added

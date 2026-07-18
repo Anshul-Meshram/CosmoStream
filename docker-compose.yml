@@ -1,0 +1,35 @@
+services:
+#  backend:
+#    build:
+#      context: ./backend
+#
+#    container_name: cosmostream-backend
+#
+#    ports:
+#      - "8000:8000"
+#  
+#    volumes:
+#      - ./backend/.env.example
+#
+#    restart: unless-stopped
+
+  postgres:
+    image: postgres:17
+
+    container_name: cosmostream-postgres
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: cosmostream
+      POSTGRES_PASSWORD: cosmostream
+      POSTGRES_DB: cosmostream
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
