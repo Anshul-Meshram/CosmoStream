@@ -7,6 +7,14 @@ from app.db.base import Base
 class HealthCheck(Base):
     __tablename__ = "health_checks"
 
+    def __repr__(self) -> str:
+        return (
+            f"HealthCheck("
+            f"id={self.id}, "
+            f"status='{self.status}', "
+            f"created_a={self.created_at})"
+        )
+
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     status: Mapped[str] = mapped_column(String(20), nullable=False)
     created_at: Mapped[DateTime] = mapped_column(

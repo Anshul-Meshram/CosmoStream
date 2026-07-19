@@ -1,3 +1,6 @@
+from app.db.base import Base
+from app.db.session import engine
+import app.models
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from app.api.router import api_router
@@ -9,6 +12,10 @@ from app.core.logging import logger
 async def lifespan(app: FastAPI):
     logger.info("Starting CosmoStream Backend...")
     logger.info("Configuration loaded successfully.")
+
+    logger.info("Creating database tables...")
+    Base.metadata.create_all(bind=engine)
+    logger.info("Database tables ready.")
 
     yield
 
