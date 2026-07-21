@@ -19,3 +19,28 @@ def create_health_record(db: Session, payload: HealthCheckCreate):
     db.refresh(health)
 
     return health
+
+
+def get_health_by_id(db: Session, health_id: int):
+    stmt = select(HealthCheck).where(HealthCheck.id == health_id)
+    health = db.execute(stmt).scalars().first()
+    return health
+
+
+def get_health_by_status(db: Session, status: str):
+    stmt = (
+        select(HealthCheck)
+        .where(HealthCheck.status == status)
+        .order_by(HealthCheck.created_at.desc())
+    )
+    return db.execute(stmt).scalars().all()
+
+
+def update_health_record(db: Session, health_id: int, payload: HealthCheckCreate):
+    health = get_health_by_id(db, health_id)
+    if health is None:
+        return None
+    health.status = payload.status
+    db.commit()
+    db.refresh(health)
+    return health
