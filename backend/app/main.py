@@ -1,11 +1,11 @@
-from app.db.base import Base
-from app.db.session import engine
 import app.models
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from contextlib import asynccontextmanager
 from app.api.router import api_router
 from app.core.config import settings
 from app.core.logging import logger
+from fastapi.responses import JSONResponse
+from app.exceptions.health import HealthRecordNotFound
 
 
 @asynccontextmanager
@@ -13,9 +13,9 @@ async def lifespan(app: FastAPI):
     logger.info("Starting CosmoStream Backend...")
     logger.info("Configuration loaded successfully.")
 
-    logger.info("Creating database tables...")
-    Base.metadata.create_all(bind=engine)
-    logger.info("Database tables ready.")
+    #    logger.info("Creating database tables...")
+    #    Base.metadata.create_all(bind=engine)
+    #    logger.info("Database tables ready.")
 
     yield
 
@@ -31,6 +31,11 @@ app = FastAPI(
 
 # Include API routers
 app.include_router(api_router)
+
+
+@app.exception_handler(HealthRecordNotFound)
+async def health_not_found_handler(request: Request, exc: HealthRecordNotFound):
+    return JSONResponse(status_code=404, content={"detail": "Health record not found"})
 
 
 @app.get("/", tags=["Root"])
