@@ -1,9 +1,10 @@
 from pydantic import BaseModel, ConfigDict
 from datetime import datetime
+from app.models.enums import HealthStatus
 
 
 class HealthCheckCreate(BaseModel):
-    status: str
+    status: HealthStatus
 
 
 class HealthCheckResponse(BaseModel):

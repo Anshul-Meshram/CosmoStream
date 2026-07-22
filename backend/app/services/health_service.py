@@ -1,7 +1,7 @@
 from app.schemas.health_check import HealthCheckCreate
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-
+from app.exceptions.health import HealthRecordNotFound
 from app.models.health_check import HealthCheck
 
 
@@ -24,6 +24,8 @@ def create_health_record(db: Session, payload: HealthCheckCreate):
 def get_health_by_id(db: Session, health_id: int):
     stmt = select(HealthCheck).where(HealthCheck.id == health_id)
     health = db.execute(stmt).scalars().first()
+    if health is None:
+        raise HealthRecordNotFound()
     return health
 
 

@@ -45,13 +45,7 @@ async def search_health(status: str, db: Session = Depends(get_db)):
 
 @router.get("/health/{health_id}", response_model=HealthCheckResponse)
 async def get_health(health_id: int, db: Session = Depends(get_db)):
-    health = get_health_by_id(db, health_id)
-    if health is not None:
-        return health
-    raise HTTPException(
-        status_code=404,
-        detail="Health record not found",
-    )
+    return get_health_by_id(db, health_id)
 
 
 @router.put("/health/(health_id}", response_model=HealthCheckResponse)
